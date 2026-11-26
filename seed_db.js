@@ -46,23 +46,23 @@ const seedDatabase = async () => {
 
     await db.query(
       `INSERT IGNORE INTO students (id, name, surname, email, password, department_id, cgpa, interview_language, evaluation_score) VALUES
-      ('22201001', 'Aishanur', 'Zalova', 'aishanur.zalova@ug.bilkent.edu.tr', ?, 1, 3.45, 'English', 92),
-      ('22201002', 'Beyza', 'Demir', 'beyza.demir@ug.bilkent.edu.tr', ?, 1, 3.30, 'English', 88),
-      ('22201003', 'Can', 'Ozturk', 'can.ozturk@ug.bilkent.edu.tr', ?, 2, 2.95, 'Turkish', 85)`,
+      ('22401018', 'Aishanur', 'Zalova', 'aishanur.zalova@ug.bilkent.edu.tr', ?, 1, 3.45, 'English', 92),
+      ('22402692', 'Beyza', 'Ulupinar', 'beyza.lupinar@ug.bilkent.edu.tr', ?, 1, 3.30, 'English', 88),
+      ('22401019', 'Leyla', 'Huseynzade', 'leyla.huseynzade@ug.bilkent.edu.tr', ?, 2, 2.95, 'Turkish', 85)`,
       [hashedPassword, hashedPassword, hashedPassword]
     );
 
     await db.query(`
       INSERT IGNORE INTO student_sectors (student_id, sector_id) VALUES
-      ('22201001', 1), ('22201001', 2),
-      ('22201002', 1), ('22201002', 3),
-      ('22201003', 2), ('22201003', 4)
+      ('22401018', 1), ('22401018', 2),
+      ('22402692', 1), ('22402692', 3),
+      ('22401019', 2), ('22401019', 4)
     `);
 
-    console.log("Seed islemi basariyla tamamlandi! Tum test hesaplari icin sifre: 123456");
+    console.log("Seed succeded, password for all: 123456");
     process.exit(0);
   } catch (error) {
-    console.error("Seed sirasinda hata olustu:", error);
+    console.error("Seed gave error:", error);
     process.exit(1);
   }
 };

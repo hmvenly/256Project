@@ -4,7 +4,7 @@ const path = require("path");
 require("dotenv").config();
 
 const authRoutes = require("./routes/authRoutes");
-
+const adminRoutes = require("./routes/adminRoutes");
 const app = express();
 
 app.set("view engine", "ejs");
@@ -28,6 +28,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/", authRoutes);
+app.use("/admin", adminRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
